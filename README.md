@@ -1,3 +1,72 @@
+# Bowling weekend challenge
+
+## Planning
+
+### Example of recorded data
+
+#### Count
+
+```
+{r: 1, f: 1}: 5        <- roll 1 and frame 1 with 5 pins knocked over
+{r: 2, f: 1}: S        <- spare (5 + 5)
+{r: 1, f: 2}: 4 
+{r: 2, f: 2}: 0 
+{r: 1, f: 3}: 0 
+{r: 2, f: 3}: 0 
+{r: 1, f: 4}: 0 
+{r: 2, f: 4}: 0 
+{r: 1, f: 5}: 0  
+{r: 2, f: 5}: 0 
+{r: 1, f: 6}: 0 
+{r: 2, f: 6}: 0 
+{r: 1, f: 7}: 10
+{r: 2, f: 7}: -        <- strike
+{r: 1, f: 8}: 0 
+{r: 2, f: 8}: 0 
+{r: 1, f: 9}: 0 
+{r: 2, f: 9}: 0 
+{r: 1, f: 10}: 10 
+{r: 2, f: 10}: 10 
+{r: 3, f: 10}: 10        <- bonus turns  
+{r: 4, f: 10}: 10        <- bonus turns 
+```
+#### FrameScore
+
+```
+{f: 1, fs: 14}
+{f: 3, fs: 14}
+{f: 4, fs: 14}
+{f: 5, fs: 14}
+{f: 6, fs: 14}
+{f: 7, fs: 14}
+{f: 8, fs: 14}
+{f: 9, fs: 14}
+{f: 10, fs: 14}
+
+```
+
+### Tests
+
+*Roughly in order of increasing complexity...*
+
+### Roll
+- Given 1 it returns first roll as {r: 1, f: 1}: 1
+- Given 1 it returns second roll as {r: 2, f: 1}: 1
+- Given 1 it returns third roll as {r: 1, f: 2}: 1
+
+### RollScore (rs)
+- Roll 1 (r1)
+    * Returns 0 if given 0
+    * Returns 10 if given 10
+- Roll 2 (r2)
+    * Return - if rl 1 is 10
+
+### FrameScore (fs)
+- Return 0 if r1 + r2 = 0
+- Bonuses:
+    * Current rs is added to previous fs if previous rs is S
+    * Current fs is added to previous fs if previous rs is -
+
 
 Bowling Challenge
 =================
@@ -75,3 +144,7 @@ In code review we'll be hoping to see:
 * The code is elegant: every class has a clear responsibility, methods are short etc.
 
 Reviewers will potentially be using this [code review rubric](docs/review.md).  Note that referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want.
+
+
+
+
