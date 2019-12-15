@@ -15,7 +15,7 @@ describe('RollTracker', function() {
       expect(rt.getRollCount()).toEqual(3);
     })
 
-    it('it logs a strike as 2 rolls', function() {
+    it('it logs a strike as 2 rolls (before 10th frame)', function() {
       rt.roll(10);
       rt.roll(10);
       expect(rt.getRollCount()).toEqual(4);
@@ -42,14 +42,6 @@ describe('RollTracker', function() {
       }
       expect(rt.getCurrentRollNumber()).toEqual(3);
     })
-
-    it('roll number is 4 after 21st roll (2nd strike bonus roll)', function() {
-      var i;
-      for(i = 1; i <= 21; i++) {
-        rt.roll();
-      }
-      expect(rt.getCurrentRollNumber()).toEqual(4);
-    })
   })
 
   describe('roll score', function() {
@@ -64,21 +56,33 @@ describe('RollTracker', function() {
       expect(rt.getRollScoreLog()[1]).toEqual(10);
     })
 
-    it('logs 10 then 0 if 10 is rolled first', function() {
+    it('logs 10 then 0 if 10 is rolled first (before 10th frame)', function() {
       rt.roll(10);
       expect(rt.getRollScoreLog()).toEqual([10, 0]);
     })
     
-    it('only logs 10 if 10 is rolled on the 21st roll (1st strike bonus roll)', function() {
+    it('only logs 10 if 10 is rolled on the 19th roll (1st strike bonus roll)', function() {
       var i;
-      for(i = 1; i <= 20; i++) {
+      for(i = 1; i <= 18; i++) {
         rt.roll();
       }
       rt.roll(10);
-      rt.roll(10);
-      expect(rt.getRollScoreLog()[20]).toEqual(10);
-      expect(rt.getRollScoreLog()[21]).toEqual(10);
-      console.log(`score log = ${rt.getRollScoreLog()}`)
+      expect(rt.getRollScoreLog()[19]).not.toEqual(0);
     }) 
   })
 })  
+
+// for debugging...
+
+function _getVisibilityBeforeEvent() {
+  console.log(`before...`);
+  console.log(`score log = ${rt.getRollScoreLog()}`);
+  console.log(`roll count = ${rt.getRollCount()}`);
+}
+
+function _getVisibilityAfterEvent() {
+  console.log(`after...`);
+  console.log(`score log = ${rt.getRollScoreLog()}`);
+  console.log(`roll count = ${rt.getRollCount()}`);
+}
+

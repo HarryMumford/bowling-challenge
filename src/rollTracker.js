@@ -8,8 +8,6 @@ RollTracker.prototype.roll = function(pins) {
   this._updateRollScore(pins);
   this.rollCount ++;
   this._updateRollNumber();
-  // console.log(`roll count: ${this.rollCount}`);
-  // console.log(`roll number: ${this.currentRollNumber}`);
 }
 
 RollTracker.prototype.getRollScoreLog = function() {
@@ -27,7 +25,7 @@ RollTracker.prototype.getCurrentRollNumber = function() {
 // private functions below
 
 RollTracker.prototype._isFirstRollOfFrame = function() {
-  return (this.rollCount % 2 === 0) && this.rollCount < 20;
+  return (this.rollCount % 2 === 0) && this.rollCount < 19;
 }
 
 RollTracker.prototype._updateRollNumber = function() {
@@ -40,7 +38,7 @@ RollTracker.prototype._updateRollNumber = function() {
 
 RollTracker.prototype._updateRollScore = function(pins) {
   this.rollScoreLog.push(pins);
-  if(this.currentRollNumber === 1 && pins === 10) {
+  if(this.rollCount < 18 && pins === 10) {
     this.rollScoreLog.push(0);
     this.rollCount ++;
   }

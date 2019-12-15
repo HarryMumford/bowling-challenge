@@ -7,28 +7,14 @@
 #### Count
 
 ```
-{r: 1, f: 1}: 5        <- roll 1 and frame 1 with 5 pins knocked over
-{r: 2, f: 1}: S        <- spare (5 + 5)
-{r: 1, f: 2}: 4 
-{r: 2, f: 2}: 0 
-{r: 1, f: 3}: 0 
-{r: 2, f: 3}: 0 
-{r: 1, f: 4}: 0 
-{r: 2, f: 4}: 0 
-{r: 1, f: 5}: 0  
-{r: 2, f: 5}: 0 
-{r: 1, f: 6}: 0 
-{r: 2, f: 6}: 0 
-{r: 1, f: 7}: 10
-{r: 2, f: 7}: -        <- strike
-{r: 1, f: 8}: 0 
-{r: 2, f: 8}: 0 
-{r: 1, f: 9}: 0 
-{r: 2, f: 9}: 0 
-{r: 1, f: 10}: 10 
-{r: 2, f: 10}: 10 
-{r: 3, f: 10}: 10        <- bonus turns  
-{r: 4, f: 10}: 10        <- bonus turns 
+rollScoreLog = [
+    1,
+    4,
+    10,
+    0,      <- this 0 is auto generated due to strike
+    5,
+    5,
+]
 ```
 #### FrameScore
 
