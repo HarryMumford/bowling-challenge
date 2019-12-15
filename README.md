@@ -49,17 +49,20 @@
 
 *Roughly in order of increasing complexity...*
 
-### Roll
-- Given 1 it returns first roll as {r: 1, f: 1}: 1
-- Given 1 it returns second roll as {r: 2, f: 1}: 1
-- Given 1 it returns third roll as {r: 1, f: 2}: 1
+### Roll counting
+- knows roll count
+- knows roll number
+    * roll number is 2 after 1st roll
+    * roll number is 1 after 2nd roll
+    * roll number is 3 after 20th roll
+    * roll number is 4 on 21st roll
 
-### RollScore (rs)
-- Roll 1 (r1)
-    * Returns 0 if given 0
-    * Returns 10 if given 10
-- Roll 2 (r2)
-    * Return - if rl 1 is 10
+### RollScoreLog 
+- On roll 1 (r1)
+    * logs 0 if given 0
+    * logs 10 if given 10
+- On roll 2 (r2)
+    * logs - if rl 1 is 10
 
 ### FrameScore (fs)
 - Return 0 if r1 + r2 = 0
