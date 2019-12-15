@@ -27,7 +27,7 @@ RollTracker.prototype.getCurrentRollNumber = function() {
 // private functions below
 
 RollTracker.prototype._isFirstRollOfFrame = function() {
-  return (this.rollCount % 2 === 0) && this.rollCount <= 20;
+  return (this.rollCount % 2 === 0) && this.rollCount < 20;
 }
 
 RollTracker.prototype._updateRollNumber = function() {

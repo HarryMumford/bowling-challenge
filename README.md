@@ -62,7 +62,7 @@
     * logs 0 if given 0
     * logs 10 if given 10
 - On roll 2 (r2)
-    * logs - if rl 1 is 10
+    * logs 0 if rl 1 is 10
 
 ### FrameScore (fs)
 - Return 0 if r1 + r2 = 0

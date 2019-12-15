@@ -74,13 +74,11 @@ describe('RollTracker', function() {
       for(i = 1; i <= 20; i++) {
         rt.roll();
       }
-      console.log(`current roll number = ${rt.getCurrentRollNumber()}`)
       rt.roll(10);
-      rt.roll(1);
+      rt.roll(10);
       expect(rt.getRollScoreLog()[20]).toEqual(10);
-      expect(rt.getRollScoreLog()[21]).toEqual(1);
+      expect(rt.getRollScoreLog()[21]).toEqual(10);
+      console.log(`score log = ${rt.getRollScoreLog()}`)
     }) 
   })
 })  
-
-
